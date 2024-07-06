@@ -7,12 +7,14 @@ import java.util.List;
 @Table(name="tb_categoria")
 public class Categoria {
 
+    //attributes
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @Column(columnDefinition = "TEXT")
     private String descricao;
 
+    //relationships
     @OneToMany(mappedBy = "categoria")
     private List<Atividade> atividades = new ArrayList<>();
 
@@ -43,7 +45,7 @@ public class Categoria {
         this.descricao = descricao;
     }
 
-    //method get for the collection
+    //collection method get
     public List<Atividade> getAtividades() {
         return atividades;
     }
